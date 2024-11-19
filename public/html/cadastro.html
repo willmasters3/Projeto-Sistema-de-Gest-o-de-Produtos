@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="#"> <!-- Ajuste o caminho para o CSS -->
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+    <form id="cadastroForm">
+        <label for="username">Nome de Usuário:</label>
+        <input type="text" name="username" required>
+        
+        <label for="password">Senha:</label>
+        <input type="password" name="password" required>
+        
+        <label for="tipo_usuario">Tipo de Usuário:</label>
+        <select name="tipo_usuario">
+            <option value="admin">Admin</option>
+            <option value="usuario">Usuário</option>
+        </select>
+        
+        <button type="submit">Cadastrar</button>
+    </form>
+    <br><br>
+    <a href="./dashboard.html">Voltar para o Dashboard</a>  <!-- Link para voltar ao dashboard -->
+    
+    <script src="../js/cadastro.js"></script> <!-- Ajuste o caminho para o JS -->
+</body>
+</html>

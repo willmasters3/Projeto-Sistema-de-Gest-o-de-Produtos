@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="../css/produtos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    
+</head>
+<body>
+    
+    <h1>Página de Produtos</h1>
+    
+    <div id="produtos-lista">
+        <!-- A lista de produtos será renderizada aqui -->
+        <p>Aqui você verá a lista de produtos em breve...</p>
+    </div>
+    
+    <a href="./dashboard.html">Voltar para o Dashboard</a>  <!-- Link para voltar ao dashboard -->
+
+    <!-- Formulário para Cadastrar Grupo -->
+    <h2>Cadastrar Grupo</h2>
+    <form id="form-grupo">
+        <label for="grupo-nome">Nome do Grupo:</label>
+        <input type="text" id="grupo-nome" required>
+        <label for="grupo-codigo">Código de Barras:</label>
+        <input type="text" id="grupo-codigo" required>
+        <input type="submit" value="Cadastrar Grupo">
+    </form>
+
+    <!-- Formulário para Cadastrar Produto -->
+    <h2>Cadastrar Produto</h2>
+<form id="form-produto">
+    <label for="nome">Nome do Produto:</label>
+    <input type="text" id="nome" required>
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" required>
+    <label for="grupo_id">Grupo:</label>
+    <select id="grupo_id" required></select>
+    <label for="codigo_barras">Código de Barras:</label>
+    <input type="text" id="codigo_barras" required readonly> <!-- Campo somente leitura -->
+    <input type="submit" value="Cadastrar Produto">
+</form>
+
+
+<h2>Lista de Produtos</h2>
+<table id="produtos-tabela"> <!-- Utilize um ID único e compreensível -->
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Grupo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Produtos serão carregados aqui -->
+    </tbody>
+</table>
+
+
+    <!-- Modal de Edição -->
+    <div id="modal-editar" style="display:none;">
+        <h2>Editar Produto</h2>
+        <form id="form-editar">
+            <label for="editar-nome">Nome:</label>
+            <input type="text" id="editar-nome" required>
+            <label for="editar-quantidade">Quantidade:</label>
+            <input type="number" id="editar-quantidade" required>
+            <label for="editar-grupo">Grupo:</label>
+            <select id="editar-grupo" required></select>
+            <input type="hidden" id="editar-id">
+            <input type="submit" value="Atualizar Produto">
+        </form>
+        <button id="fechar-modal">Fechar</button>
+    </div>
+<script src="../js/produtos.js"></script>
+</body>
+</html>
