@@ -84,8 +84,8 @@ async function carregarGrupos() {
             // Aqui você pode buscar o grupo para obter o código de barras
             const grupoResponse = await fetch(`/api/grupos/${selectedGrupoId}`); // Verifique se essa rota existe
             if (grupoResponse.ok) { // Verifique se a resposta está ok antes de processá-la
-                const grupo = await grupoResponse.json();
-                document.getElementById('codigo_barras').value = grupo.codigo_barras; // Preencher automaticamente o código de barras
+                
+               
             } else {
                 console.error('Erro ao buscar grupo:', grupoResponse.statusText); // Log para entender o erro
             }

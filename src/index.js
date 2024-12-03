@@ -146,8 +146,16 @@ router.post('/produtos', async (req, res) => {
 
     try {
         const pool = await sql.connect(config);
-        
-        // Aqui você pode fazer qualquer validação adicional necessária
+
+        // Verifica se o produto com o mesmo nome e grupo já existe
+        const existingProduto = await pool.request()
+            .input('nome', sql.VarChar, nome)
+            .input('grupo_id', sql.Int, grupo_id)
+            .query('SELECT COUNT(*) AS count FROM produtos WHERE nome = @nome AND grupo_id = @grupo_id');
+
+        if (existingProduto.recordset[0].count > 0) {
+            return res.status(400).json({ message: 'Produto já cadastrado neste grupo.' });
+        }
 
         // Inserção do novo produto no banco de dados
         await pool.request()
@@ -156,7 +164,7 @@ router.post('/produtos', async (req, res) => {
             .input('entradas', sql.Int, entradas)
             .input('saidas', sql.Int, saidas)
             .input('grupo_id', sql.Int, grupo_id)
-            .input('codigo_barras', sql.VarChar, codigo_barras) // Lembre-se de adicionar esse campo se necessário
+            .input('codigo_barras', sql.VarChar, codigo_barras) 
             .query('INSERT INTO produtos (nome, quantidade, entradas, saidas, grupo_id, codigo_barras) VALUES (@nome, @quantidade, @entradas, @saidas, @grupo_id, @codigo_barras)');
         
         res.status(201).json({ message: 'Produto cadastrado com sucesso!' });
@@ -165,6 +173,7 @@ router.post('/produtos', async (req, res) => {
         res.status(500).json({ message: 'Erro ao cadastrar produto.' });
     }
 });
+
 
 
 // Rota para obter todos os produtos
