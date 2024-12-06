@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+h1{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+/*Faltou fazer com o paragrafo. P*/
+nav{
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0,1);
+    padding: 20px;
+    width: 300px;
+    margin: 0 auto;
+}
+ul{
+    list-style: none;
+}
+li{
+    margin: 20px 0;
+}
+a{
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    background-color: #007BFF;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+a:hover{
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+a:active{
+    transform: translateY(1px);
+}
+@media (max-whidth: 600px){
+    nav{
+        width: 90%;
+    }
+}
